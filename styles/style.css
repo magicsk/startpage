@@ -31,7 +31,7 @@ body {
 	background-color: var(--bg);
 	font-family: 'Space Mono', monospace;
 	color: var(--yellow);
-	transition: all 0.4s;
+	transition: all 0.25s ease-out;
 }
 
 ul {
@@ -85,7 +85,7 @@ form:focus-within input::placeholder {
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	transition: all 0.4s;
+	transition: all 0.25s;
 }
 
 #content {
@@ -139,6 +139,45 @@ form:focus-within input::placeholder {
 	text-decoration: underline;
 }
 
+/*
+  Transitions
+*/
+#fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    pointer-events: none;
+    background: var(--bg);
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+    from { opacity: 1 }
+      to { opacity: 0 }
+}
+
+@keyframes fade-in {
+    from { opacity: 0 }
+      to { opacity: 1 }
+}
+
+#fader.fade-out {
+    opacity: 0;
+    animation-name: fade-out;
+}
+
+#fader.fade-in {
+    opacity: 1;
+    animation-name: fade-in;
+}
+
+/*
+  Media querries
+*/
 @media (max-width: 980px) {
 	img#leftImg {
     	height: 280px;
