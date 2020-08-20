@@ -31,6 +31,7 @@ body {
 	background-color: var(--bg);
 	font-family: 'Space Mono', monospace;
 	color: var(--yellow);
+	transition: all 0.4s;
 }
 
 ul {
@@ -61,11 +62,13 @@ form input[type="search"] {
 	margin-left: 12px;
 	width: 95%;
 	color: var(--yellow);
+	transition: all 0.2s;
 }	
 
 form label {
 	color: var(--yellow);
 	position: absolute;
+	transition: all 0.4s;
 }
 
 form:focus-within input::placeholder {
@@ -82,6 +85,7 @@ form:focus-within input::placeholder {
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+	transition: all 0.4s;
 }
 
 #content {
