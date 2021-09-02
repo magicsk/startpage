@@ -40,10 +40,15 @@ ul {
 	padding: 2px 15px;
 }
 
-p[class=credits] > a {
+.credits {
 	position: fixed;
 	bottom: 7px;
 	right: 10px;
+}
+
+.credits p {
+	float: left;
+	margin-left: 5px;
 }
 
 /*Form based off of Vallode's work:
