@@ -8,6 +8,14 @@
     "48": "icons/favicon-48x48.png",
     "96": "icons/favicon-96x96.png"
   },
+  "applications": {
+    "gecko": {
+      "id": "magicsk@magicsk.eu"
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
   "permissions": [
     "storage"
   ]
