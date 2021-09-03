@@ -1,20 +1,14 @@
 {
-
-    "manifest_version": 2,
-    "name": "Magic's startpage",
-    "version": "1.0",
-  
-    "description": "customized startpage",
-  
-    "icons": {
-      "48": "icons/border-48.png"
-    },
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.mozilla.org/*"],
-        "js": ["borderify.js"]
-      }
-    ]
-  
-  }
+  "manifest_version": 2,
+  "name": "Magic's startpage",
+  "version": "1.0",
+  "description": "customized startpage",
+  "icons": {
+    "32": "icons/favicon-32x32.png",
+    "48": "icons/favicon-48x48.png",
+    "96": "icons/favicon-96x96.png"
+  },
+  "permissions": [
+    "storage"
+  ]
+}

@@ -5,7 +5,7 @@
 /*Change these variables to match with your setup. These colors work for
   the image I used and my overall desktop theme (see here:
   https://i.imgur.com/gxMdNKi.png).*/
-:root {
+  :root {
 	--red: #BD9980;
 	--white: #DCDCCC;
 	--yellow: #f0dfaf;

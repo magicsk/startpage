@@ -4,8 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Home | Magic</title>
-	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
@@ -17,8 +18,16 @@
 	<meta name="msapplication-TileColor" content="#b91d47">
 	<meta name="msapplication-config" content="/icons/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
-	<script src="scripts/transitions.js"></script>
-	<script defer src="scripts/backgrounds.js"></script>
+	<script defer src="main.js"></script>
+	<script>
+		function fadeInPage() {
+			if (!window.AnimationEvent) {
+				return;
+			}
+			var fader = document.getElementById('fader');
+			fader.classList.add('fade-out');
+		}
+	</script>
 </head>
 
 <body>
@@ -101,8 +110,6 @@
 			</p>
 		</div>
 	</div>
-
-	<script src="scripts/darkmode.js"></script>
 </body>
 
 </html>
