@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "Magic's startpage",
+    "version": "1.0",
+  
+    "description": "customized startpage",
+  
+    "icons": {
+      "48": "icons/border-48.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.mozilla.org/*"],
+        "js": ["borderify.js"]
+      }
+    ]
+  
+  }

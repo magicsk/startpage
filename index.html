@@ -1,99 +1,108 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home | Magic</title>
-		<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles/style.css">
-		<script src="scripts/transitions.js"></script>
-		<script defer src="scripts/backgrounds.js"></script>
-	</head>
 
-	<body>
-		<svg id="fader"></svg>
-        <script>fadeInPage();</script>
+<head>
+	<meta charset="utf-8">
+	<title>Home | Magic</title>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+	<link rel="manifest" href="/icons/site.webmanifest">
+	<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#d55b5b">
+	<link rel="shortcut icon" href="/icons/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="Magic">
+	<meta name="application-name" content="Magic">
+	<meta name="msapplication-TileColor" content="#b91d47">
+	<meta name="msapplication-config" content="/icons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<script src="scripts/transitions.js"></script>
+	<script defer src="scripts/backgrounds.js"></script>
+</head>
 
-		<!-- Welcome screen -->
-		<div id="main_window">
-			<div id=leftImg class="image"></div>
-			<div id="content">
-				<h1 class="title">magic_sk</h1>
-				<div id="date">
-					<script type="text/javascript">
-						function doDate() {
-							var str = "";
-							var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-							var clock = new Date();
-							var now = new Date();
+<body>
+	<svg id="fader"></svg>
+	<script>fadeInPage();</script>
 
-							str += months[clock.getMonth()] + " " + now.getDate() + ", " + clock.getFullYear() + " | " + ("0" + now.getHours()).slice(-2) +":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
-							document.getElementById("date").innerHTML = str;
-						}
-						setInterval(doDate, 1000);
-						doDate();
-					</script>
-				</div>
+	<!-- Welcome screen -->
+	<div id="main_window">
+		<div id=leftImg class="image"></div>
+		<div id="content">
+			<h1 class="title">magic_sk</h1>
+			<div id="date">
+				<script type="text/javascript">
+					function doDate() {
+						var str = "";
+						var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+						var clock = new Date();
+						var now = new Date();
 
-		<!-- Web search -->
-				<div id="web_search">
-					<form action="https://duckduckgo.com/" method="GET" autocomplete="off">
-						<label for="q">></label>
-						<input autofocus
-			        	 		id="q"
-			         			name="q"
-			         			type="search"
-			         			placeholder="search with duckduckgo...">
-					</form>
-				</div>
-
-		<!-- Links -->
-				<nav>
-					<div id=links_container>
-						<ul>
-							<a class="subtitle">Hosted</a>
-								<li><a href="https://home.magicsk.eu/">Home</a></li>
-								<li><a href="https://media.magicsk.eu/">Jellyfin</a></li>
-								<li><a href="https://bitwarden.magicsk.eu/">Bitwarden</a></li>
-							</ul>
-							<ul>
-								<a class="subtitle">Develpoment</a>
-								<li><a href="https://api.magicsk.eu/">API</a></li>
-								<li><a href="http://localhost:3000/">localhost</a></li>
-								<li><a href="https://code.magicsk.eu/">VSCode</a></li>
-							</ul>
-							<ul>
-								<a class="subtitle">Social</a>
-								<li><a href="https://www.instagram.com/rastislavbrna/">Instagram</a></li>
-								<li><a href="https://github.com/magicsk">GitHub</a></li>
-								<li><a href="https://gist.github.com/magicsk">Gists</a></li>
-								<li><a href="https://www.reddit.com/user/magic_sk">Reddit</a></li>
-							</ul>
-							<ul>
-								<a class="subtitle">Projects</a>
-								<li><a href="https://magicsk.github.io/lost-henn/">Lost Henn</a></li>
-								<li><a href="https://github.com/magicsk/mhd_virtual_table">MHD Virtual Table</a></li>
-								<li><a href="https://maxmiedinger.magicsk.eu/">Max Miedinger</a></li>
-						</ul>
-					</div>
-				</nav>
+						str += months[clock.getMonth()] + " " + now.getDate() + ", " + clock.getFullYear() + " | " + ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
+						document.getElementById("date").innerHTML = str;
+					}
+					setInterval(doDate, 1000);
+					doDate();
+				</script>
 			</div>
+
+			<!-- Web search -->
+			<div id="web_search">
+				<form action="https://duckduckgo.com/" method="GET" autocomplete="off">
+					<label for="q">></label>
+					<input autofocus id="q" name="q" type="search" placeholder="search with duckduckgo...">
+				</form>
+			</div>
+
+			<!-- Links -->
+			<nav>
+				<div id=links_container>
+					<ul>
+						<a class="subtitle">Hosted</a>
+						<li><a href="https://home.magicsk.eu/">Home</a></li>
+						<li><a href="https://media.magicsk.eu/">Jellyfin</a></li>
+						<li><a href="https://bitwarden.magicsk.eu/">Bitwarden</a></li>
+					</ul>
+					<ul>
+						<a class="subtitle">Develpoment</a>
+						<li><a href="https://api.magicsk.eu/">API</a></li>
+						<li><a href="http://localhost:3000/">localhost</a></li>
+						<li><a href="https://code.magicsk.eu/">VSCode</a></li>
+					</ul>
+					<ul>
+						<a class="subtitle">Social</a>
+						<li><a href="https://www.instagram.com/rastislavbrna/">Instagram</a></li>
+						<li><a href="https://github.com/magicsk">GitHub</a></li>
+						<li><a href="https://gist.github.com/magicsk">Gists</a></li>
+						<li><a href="https://www.reddit.com/user/magic_sk">Reddit</a></li>
+					</ul>
+					<ul>
+						<a class="subtitle">Projects</a>
+						<li><a href="https://magicsk.github.io/lost-henn/">Lost Henn</a></li>
+						<li><a href="https://github.com/magicsk/mhd_virtual_table">MHD Virtual Table</a></li>
+						<li><a href="https://maxmiedinger.magicsk.eu/">Max Miedinger</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="bottom">
+		<div class="credits">
+			<p><a id="bggif" href="https://giphy.com">Background GIF</a></p>
+			<p><a id="fggif" href="https://giphy.com">Foreground GIF</a></p>
 		</div>
 
-		<!-- Footer -->
-		<div class="bottom">
-			<div class="credits">
-				<p><a id="bggif" href="https://giphy.com">Background GIF</a></p>
-				<p><a id="fggif" href="https://giphy.com">Foreground GIF</a></p>
-			</div>
-
-			<div class="contacts">
-				<p>
-					<a href="https://github.com/magicsk/startpage">GitLab Repo</a> | 
-					<span id="light-mode-toggle" class="light-mode-toggle">Switch themes</span>
-				</p>
-			</div>
+		<div class="contacts">
+			<p>
+				<a href="https://github.com/magicsk/startpage">GitLab Repo</a> |
+				<span id="light-mode-toggle" class="light-mode-toggle">Switch themes</span>
+			</p>
 		</div>
+	</div>
 
-		<script src="scripts/darkmode.js"></script>
-	</body>
+	<script src="scripts/darkmode.js"></script>
+</body>
+
 </html>
