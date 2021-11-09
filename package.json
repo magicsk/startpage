@@ -1,0 +1,25 @@
+{
+  "name": "startpage",
+  "version": "1.2.0",
+  "description": "This is a simple, minimal startpage that meet my needs. Demo: https://magicsk.eu",
+  "main": "index.html",
+  "scripts": {
+    "test": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicsk/startpage.git"
+  },
+  "keywords": [
+    "startpage"
+  ],
+  "author": "magic_sk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/magicsk/startpage/issues"
+  },
+  "homepage": "https://github.com/magicsk/startpage#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0"
+  }
+}
