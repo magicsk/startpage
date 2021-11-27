@@ -47,7 +47,7 @@ fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632
         document.getElementById('fggif').href = data.data.url;
     });
 
-fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=javascript')
+fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=shape')
     .then(response => response.json())
     .then(data => {
         let url = `url(${data.data.images.original.url})`;
@@ -100,21 +100,37 @@ const enableLightMode = () => {
 
 const disableLightMode = () => {
     document.body.classList.remove('lightmode');
+    localStorage.setItem('lightMode', 'disabled');
+};
+
+const enableAutoMode = () => {
+    const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+    darkThemeMq.addEventListener('change', (e) => {
+        if (e.matches) {
+            document.body.classList.remove('lightmode');
+        } else {
+            document.body.classList.add('lightmode');
+        }
+    });
+    darkThemeMq.matches ? document.body.classList.remove('lightmode') : document.body.classList.add('lightmode');
     localStorage.setItem('lightMode', null);
 };
 
-if (lightMode === 'enabled') {
-    enableLightMode();
-}
+const disableAutoMode = () => {
+    const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+    darkThemeMq.removeEventListener('change', {});
+};
 
 lightModeToggle.addEventListener('click', () => {
     lightMode = localStorage.getItem('lightMode');
-    if (lightMode !== 'enabled') {
-        enableLightMode();
-        console.log(lightMode);
-    } else {
+    if (lightMode == 'enabled') {
         disableLightMode();
-        console.log(lightMode);
+        disableAutoMode();
+    } else if (lightMode == 'disabled') {
+        enableAutoMode();
+    } else {
+        enableLightMode();
+        disableAutoMode();
     }
 });
 
@@ -144,10 +160,26 @@ function loadLocalStorage() {
         localStorage.setItem('isEmpty', false);
         localStorage.setItem('title', 'magic_sk');
         localStorage.setItem('links_container', JSON.stringify(links_container));
-        localStorage.setItem('max-width', 1200);
-        alert('Customize everything by clicking on Options in top left corner.');
+        localStorage.setItem('max-width', 900);
+        localStorage.setItem('lightMode', null);
+        // alert('Customize everything by clicking on Options in top left corner.');
         loadLocalStorage();
     } else {
+        lightMode = localStorage.getItem('lightMode');
+        switch (lightMode) {
+        case 'enbled':
+            enableLightMode();
+            break;
+
+        case 'disabled':
+            disableLightMode();
+            break;
+        
+        default:
+            enableAutoMode();
+            break;
+        }
+
         let title = localStorage.getItem('title');
         document.getElementById('pageTitle').innerText = title;
         document.getElementById('titleTextInput').value = title;

@@ -237,6 +237,14 @@ a {
     text-decoration: underline;
 }
 
+#light-mode-toggle {
+    cursor: pointer;
+}
+
+#light-mode-toggle:hover {
+    text-decoration: underline;
+}
+
 /*
   Transitions
 */
