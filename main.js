@@ -36,25 +36,32 @@ let links_container = [
     '',
     ''
 ];
+
+let gifTypes = {
+    foreground: 'pattern',
+    background: 'shape'
+}
+
 const urlLines = [2, 4, 6, 8, 11, 13, 15, 17, 20, 22, 24, 26, 29, 31, 33, 35];
 let maxWidthSlider = document.getElementById('maxWidthRange');
 
-fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=pattern')
+function loadGifs() {    
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=' + gifTypes.foreground)
     .then(response => response.json())
     .then(data => {
         let url = `url(${data.data.images.original.url})`;
         document.getElementById('leftImg').style.backgroundImage = url;
         document.getElementById('fggif').href = data.data.url;
     });
-
-fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=shape')
+    
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=1e37df9386bd4014b9b0cd305632e41c&rating=r&tag=' + gifTypes.background)
     .then(response => response.json())
     .then(data => {
         let url = `url(${data.data.images.original.url})`;
         document.getElementsByTagName('body')[0].style.backgroundImage = url;
         document.getElementById('bggif').href = data.data.url;
     });
-
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     if (!window.AnimationEvent) {
@@ -160,11 +167,18 @@ function loadLocalStorage() {
         localStorage.setItem('isEmpty', false);
         localStorage.setItem('title', 'magic_sk');
         localStorage.setItem('links_container', JSON.stringify(links_container));
+        localStorage.setItem('gifTypes', JSON.stringify(gifTypes))
         localStorage.setItem('max-width', 900);
         localStorage.setItem('lightMode', null);
         // alert('Customize everything by clicking on Options in top left corner.');
         loadLocalStorage();
     } else {
+        gifTypes = JSON.parse(localStorage.getItem('gifTypes'));
+        loadGifs();
+
+        document.getElementById('foregroundGifTypeTextInput').value = gifTypes.foreground
+        document.getElementById('backgroundGifTypeTextInput').value = gifTypes.background
+
         lightMode = localStorage.getItem('lightMode');
         switch (lightMode) {
         case 'enbled':
@@ -187,8 +201,8 @@ function loadLocalStorage() {
         links_container = JSON.parse(localStorage.getItem('links_container'));
         let inputs = document.getElementById('editModalForms').getElementsByTagName('input');
         
-        for (let i = 2; i < inputs.length; i++) {
-            inputs[i].value = links_container[i - 2];
+        for (let i = 4; i < inputs.length; i++) {
+            inputs[i].value = links_container[i - 4];
         }
         
         let linksContainers = document.getElementById('links_container').getElementsByTagName('a');
@@ -237,10 +251,14 @@ document.getElementById('editModalSubmitBtn').addEventListener('click', () => {
     let title = inputs[0].value;
     localStorage.setItem('title', title);
 
-    for (let i = 2; i < inputs.length; i++) {
-        links_container[i - 2] = inputs[i].value;
+    for (let i = 4; i < inputs.length; i++) {
+        links_container[i - 4] = inputs[i].value;
     }
 
+    gifTypes.foreground = document.getElementById('foregroundGifTypeTextInput').value
+    gifTypes.background = document.getElementById('backgroundGifTypeTextInput').value
+
+    localStorage.setItem('gifTypes', JSON.stringify(gifTypes))
     localStorage.setItem('links_container', JSON.stringify(links_container));
     localStorage.setItem('max-width', maxWidthSlider.value);
 

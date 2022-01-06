@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Magic's startpage",
-  "version": "1.3",
+  "version": "1.4",
   "description": "This is a simple, minimal startpage that meet my needs. Demo: https://magicsk.eu",
   "icons": {
     "32": "icons/favicon-32x32.png",
